@@ -1,0 +1,12 @@
+.AppComponents{
+    display: flex;
+}
+
+
+  
+@media (max-width:1300px){
+    .AppComponents{
+        display: flex;
+        flex-direction: column;
+    }
+}

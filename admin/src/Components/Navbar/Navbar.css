@@ -1,0 +1,9 @@
+@import '../../index.css';
+.Navbar{
+    background-color: rgb(183, 182, 182);
+    border-bottom:1px solid grey ;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between ;
+}
