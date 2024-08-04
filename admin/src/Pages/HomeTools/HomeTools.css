@@ -17,25 +17,8 @@
     
 }
 
-.brandList{
-    border: 1px solid black;
-    background-color: grey;
-    
-    padding: 20px;
-    margin-top: 10px;
-        width: 300px;
-   display: none;
-position: absolute;
-z-index: 1;
-
-}
-.names{
-width: 100%;
-height: 80%;
-overflow-y: scroll;
 
 
-}
 .names::-webkit-scrollbar {
     width: 8px; /* Width of the scrollbar */
 }
@@ -49,12 +32,25 @@ overflow-y: scroll;
 .names::-webkit-scrollbar-thumb:hover {
     background: #555; /* Color when hovering over the draggable part */
 }
+.brands::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+.brands::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Background of the track */
+}
+.brands::-webkit-scrollbar-thumb {
+    background: rgb(43, 43, 43); /* Color of the draggable part of the scrollbar */
+}
 
+.nbrand::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color when hovering over the draggable part */
+}
 .NameList{
     border: 1px solid black;
     background-color: grey;
- height: 300px;
-    
+ 
+height: auto;
+   
     margin-top: 10px;
     width: 250px;
     padding: 20px;
@@ -62,7 +58,33 @@ overflow-y: scroll;
    display: none;
 position: absolute;
 z-index: 1; 
+
 }
+.names{
+    width: 100%;
+    
+   min-height: 100px;
+   max-height:250px ;
+    overflow-y:auto;
+    
+    }
+    .brandList{
+        border: 1px solid black;
+        background-color: grey;
+        height: 300px;
+        padding: 20px;
+        margin-top: 10px;
+            width: 250px;
+       display: none;
+    position: absolute;
+    z-index: 1;
+    
+    }
+    .brands{
+        width: 100%;
+        height: 60%;
+        overflow-y: auto;
+    }
  .show{
     display: block;
 }
@@ -80,6 +102,7 @@ z-index: 1;
 
 }
 .addproductbtn {
+    
     margin-top: 20px;
     width: 100%;
     height: auto;
@@ -87,14 +110,45 @@ z-index: 1;
     border-radius: 6px;
     background-color: transparent;
     border: 1px solid white;
-   
+    bottom: 0;
+
     cursor: pointer;
     color: white;
     font-size: 16px;
     font-weight: 500;
 }
+.addproductbtn.apply{
+ background-color:    rgb(43, 43, 43);
+    color: white;
+    border: 1px solid gray;
+
+}
 
 .arrow.down{
     transform: rotate(90deg);
     transition: transform 0.2s ease-in-out;
+}
+.pall{
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.searchinputbrand{
+    border: 1px solid white;
+    background-color: transparent;
+   width: 90%;
+   padding:0 10px ;
+    outline: none;
+    height: 40px;
+    color: white;
+   border-radius: 5px;
+    margin-bottom:20px ;
+    
+}
+.searchinputbrand::placeholder{
+    color: #f1f1f1;
+    
+}
+.noprod{
+    font-size: 12px;
 }

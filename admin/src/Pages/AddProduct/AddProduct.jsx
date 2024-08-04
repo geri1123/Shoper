@@ -11,6 +11,7 @@ const AddProduct = () => {
   const [productData, setProductData] = useState({
     brand: '',
     gender: '',
+    productName:'',
     category:'',
    name: '',
    material:'',
@@ -37,6 +38,7 @@ const AddProduct = () => {
   const [errors, setErrors] = useState({
     gender: '',
     brand: '',
+    productName:'',
     category: '',
     name: '',
    material:'',
@@ -274,6 +276,7 @@ const handlesubmit = async () => {
           },
           body: JSON.stringify({
               gender: productData.gender,
+              productName:productData.productName,
               brand: productData.brand,
               category: productData.category,
               name: productData.name,
@@ -298,6 +301,7 @@ const handlesubmit = async () => {
            setProductData({
         brand: '',
         gender: '',
+        productName:'',
         category: '',
         name: '',
         material:'',
@@ -376,6 +380,14 @@ const handlesubmit = async () => {
           
         </div>
         {errors.brand && <p className="error-message">{errors.brand}</p>}
+      </div>
+      <div className="addproduct-itemfield">
+        <h3 >ProductName</h3>
+        <div className="addproduct-brand">
+          <input type="text" name='productName' value={productData.productName} onChange={handleChange} placeholder='Add productName' />
+          
+        </div>
+        {errors.productName && <p className="error-message">{errors.productName}</p>}
       </div>
 
       <div className="addproduct-itemfield">

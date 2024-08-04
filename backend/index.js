@@ -24,7 +24,9 @@ app.get("/" ,(req , res)=>{
 
 const Product=mongoose.model("Product" , {
     id: { type: Number, required: true },
+    
     gender: { type: String, required: true },
+    productName:{type:String , required:true},
     brand: { type: String, required: true },
     category: { type: String, required: true },
     name:{type:String , required:true},
@@ -72,6 +74,7 @@ app.post('/addproduct', async (req, res) => {
         const newProduct = new Product({
             id: id,
             gender: req.body.gender,
+            productName:req.body.productName,
             brand: req.body.brand,
             category: req.body.category,
             name:req.body.name,

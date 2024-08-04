@@ -23,7 +23,7 @@
     margin-bottom: 20px; /* Added margin for better spacing between fields */
 }
 .addproduct-itemfield .inputfield,
-.addproduct-brand select {
+.addproduct-brand select ,.addproduct-brand input {
     box-sizing: border-box;
     width: 100%;
     height: 50px;

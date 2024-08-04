@@ -66,7 +66,7 @@ const AddBrand = () => {
                 setPosterUrl(null);
                 setErrorMessage("");
                 fetchallbrand(); 
-               
+               window.location.reload('');
             } else {
                 // alert(data.message || "Failed to add brand");
                 setErrorMessage(data.message);
