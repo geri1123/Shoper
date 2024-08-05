@@ -5,7 +5,7 @@ const AddedProd = () => {
   const [allproduct , setAllProducts]=useState([]);
   const [showConfirmDialog , setShowConfgDialog]=useState(false);
   const[deleteId , setDeleteId]=useState(null);
-    
+    const [searchItemNumber , setsearchItemNumber]=useState('');
         const fetchallprod=async()=>{
             try{
                 const res=await fetch('http://localhost:5000/allproducts');
@@ -49,10 +49,28 @@ const AddedProd = () => {
         setShowConfgDialog(false);
         setDeleteId(null);
     }
+ const handleItemNumberchange=(e)=>{
+   setsearchItemNumber(e.target.value)
 
+ }
+ const filteredItemnr=()=>{
+    if(!searchItemNumber) return sortbydate;
+    
+    return sortbydate.filter((item)=>item.itemNumber.toLowerCase().includes(searchItemNumber.toLowerCase())
+     || item.id.toString().includes(searchItemNumber));
+ }
+ const filterItemnr=filteredItemnr();
+const clearsrch=()=>{
+    setsearchItemNumber('');
+}
   return (
     <div className='addedproducts'>
         <h2>Added product</h2>
+        <div className="inputSearch">
+
+        <input type="text"  className='serachproductbyitemnr' value={searchItemNumber} onChange={handleItemNumberchange} placeholder='Search product by id and itemNumber' />
+        {searchItemNumber ?<button className='addedsearchbtn' onClick={clearsrch} type='button'>Clear</button>: ''}
+        </div>
         {showConfirmDialog && (
       <div className="confirm-dialog">
       <div className="confirm-content">
@@ -68,11 +86,12 @@ const AddedProd = () => {
             <thead className='thead'>
                 <tr>
                     <th>Id</th>
+                    <th>P.Number</th>
                     <th>Gender</th>
                     <th>Brand</th>
                     <th>Category</th>
-                    <th>Name</th>
-                    <th>Type</th>
+                    <th>Product name</th>
+                   
                     <th>Image</th>
                     <th>Remove</th>
                     
@@ -81,20 +100,21 @@ const AddedProd = () => {
             <tbody>
   {
     
-    sortbydate.length > 0 ? sortbydate.map((prod , i)=>(
+    filterItemnr.length > 0 ? filterItemnr.map((prod , i)=>(
         <tr key={i} className={deleteId===prod.id ? 'removeicondelete':''} >
             <td>{prod.id}</td>
+            <td>{prod.itemNumber}</td>
             <td>{prod.gender}</td>
             <td>{prod.brand}</td>
             <td>{prod.category}</td>
-            <td>{prod.name}</td>
-            <td>{prod.type}</td>
+            <td>{prod.productName}</td>
+           
             <td><img className='prodimg' src={prod.img_url_1} alt="" /></td>
             <td  ><TiDeleteOutline onClick={()=>removehandler(prod.id)}  className='removeicon'/></td>
         </tr>
     )) : (
        <tr>
-        <td colSpan={7}> No product found</td>
+        <td className='noprodfound' colSpan={7}> No product found</td>
        </tr>      
     )
 

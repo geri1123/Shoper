@@ -3,9 +3,9 @@
 .addproduct{
     width: 50%;
     
-   
+  
     margin: 10px;
-    
+    height: 90vh;
     background-color: rgb(43, 43, 43);
     box-sizing: border-box;
     border-radius: 20px;
@@ -13,8 +13,26 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
-   
+  overflow-y: scroll ;
     padding: 30px;
+}
+.addproduct::-webkit-scrollbar,
+ .addedprod::-webkit-scrollbar{
+    width:5px;
+
+  
+}
+.addproduct::-webkit-scrollbar-track,
+.addedprod::-webkit-scrollbar-track {
+    background: rgb(43, 43, 43); /* Background of the track */
+}
+.addproduct::-webkit-scrollbar-thumb,
+.addedprod::-webkit-scrollbar-thumb {
+    background: #f1f1f1; /* Color of the draggable part of the scrollbar */
+}
+.addproduct::-webkit-scrollbar-thumb:hover,
+.addedprod::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color when hovering over the draggable part */
 }
 .addproduct-itemfield {
     width: 100%;
@@ -65,7 +83,8 @@ label{
     cursor: pointer;
     color: white;
     font-size: 14px;
-    padding: 0 20px;
+    padding: 10px 20px;
+   
 }
 li{
     color: white;
@@ -92,7 +111,7 @@ li{
 .addedprod{
     background-color: rgb(43, 43, 43);
     width: 50%;
-    height: 120vh;
+    height: 90vh;
     box-sizing: border-box;
     border-radius: 20px;
     display: flex;
@@ -111,7 +130,7 @@ table{
 td{
     color: white;
   /* padding: 10px 40px; */
-  
+  font-size: 10px;
   text-align: center;
   
   border-bottom: 1px solid whitesmoke;
@@ -174,3 +193,30 @@ th{
 .errorcol{
    border: 1px solid red;
 }
+.serachproductbyitemnr{
+    width: 50%;
+    height: 40px;
+    outline: none;
+    padding:0 10px ;
+    color: white;
+    background-color: transparent;
+    border: 1px solid gray;
+    margin-top: 5px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .serachproductName:focus{
+    border:1px solid white;
+    
+  }
+  .addedsearchbtn{
+    border-radius: 20px;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #4e4949;
+    border: none;
+    color: white;
+  }
+  .noprodfound{
+    padding: 10px;
+  }

@@ -11,7 +11,7 @@ const cors=require("cors");
 app.use(express.json());
 app.use(cors());
 //Database connection with mongoDB
-mongoose.connect("mongodb+srv://shoping:*****@cluster0.xabqr5h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+mongoose.connect("mongodb+srv://shoping:geri1996@cluster0.xabqr5h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 
 
 //API Creation
@@ -27,6 +27,7 @@ const Product=mongoose.model("Product" , {
     
     gender: { type: String, required: true },
     productName:{type:String , required:true},
+    itemNumber:{type:String , required:true},
     brand: { type: String, required: true },
     category: { type: String, required: true },
     name:{type:String , required:true},
@@ -41,8 +42,8 @@ const Product=mongoose.model("Product" , {
             soldOut: { type: Boolean, default: false }
         }
     ],
-    old_price: { type: Number, required: true },
-    new_price: { type: Number, required: true },
+    old_price: { type: String, required: true },
+    new_price: { type: String, required: true },
     description: { type: String, required: true },
     img_url_1: { type: String, required: true },
     img_url_2: { type: String, required: true },
@@ -75,6 +76,7 @@ app.post('/addproduct', async (req, res) => {
             id: id,
             gender: req.body.gender,
             productName:req.body.productName,
+            itemNumber:req.body.itemNumber,
             brand: req.body.brand,
             category: req.body.category,
             name:req.body.name,

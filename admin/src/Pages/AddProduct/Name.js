@@ -7,7 +7,7 @@ export const ClothingCategories = [
         { id: 1, name: 'Dresses', options: ['Casual', 'Jersey', 'Knitted Dresses', 'Party', 'Evening Dresses', 'Formal'] , size:['XXS' , 'XS' ,  'S' , 'M'  , 'L' , 'XL'  , 'XXL'] 
           
         },
-        { id: 2, name: 'T-shirt', options: ['Polo Shirt','Polo shirt', 'Sleeveless', 'V-neck', 'Crew Neck'] , size:['XXS' , 'XS' ,  'S' , 'M'  , 'L' , 'XL'  , 'XXL'] },
+        { id: 2, name: 'T-shirt', options: ['Polo Shirt', 'Sleeveless', 'V-neck', 'Crew Neck'] , size:['XXS' , 'XS' ,  'S' , 'M'  , 'L' , 'XL'  , 'XXL'] },
         { id: 3, name: 'Shirt', options: ['Business Long Sleeve', 'Business Short Sleeve', 'Leisure Long Sleeve', 'Leisure Short Sleeve'] , size:['XXS' , 'XS' ,  'S' , 'M'  , 'L' , 'XL'  , 'XXL']},
         { id: 4, name: 'Pant', options: ['Cargo', 'Casual Trousers', 'Chinos', 'Shorts', 'Sweatpant', 'Business Trouser'] , size:['XXS' , 'XS' ,  'S' , 'M'  , 'L' , 'XL'  , 'XXL'] },
         { id: 5, name: 'Jeans', options: ['Bootcut', 'Shorts', 'Slim Fit', 'Straight Leg'] ,size:[ 'XS' , 'S'  ,'M' , 'L','XL' ,'XXL' , 'EU 21' , 'EU 22' , 'EU 23' , 'EU 24' , 'EU 25' , 'EU 26' ,'EU 27' , 'EU 28' , 'EU 29' ,'EU 30' , 'EU 32' , 'EU 34' ,'EU 36' , 'EU 38' , 'EU 40' ,'EU 42' , 'EU 44' , 'EU 46' ,'EU 48' , 'EU 50' , 'EU 52'  ,'EU 54' , 'EU 56' , 'EU 58' ,'EU 60'] },
@@ -31,7 +31,8 @@ export const ClothingCategories = [
         { id: 2, name: 'Lace-up', options: ['Boat Shoe', 'Classic', 'Sporty'] , size:['EU 30' , 'EU 31','EU 32' , 'EU 33','EU 34' , 'EU 35','EU 36' , 'EU 37', 'EU 38' , 'EU 39','EU 40' , 'EU 41','EU 42' , 'EU 43','EU 44' , 'EU 45'] },
         { id: 3, name: 'Boot', options: ['Classic Boot', 'Winter Boot']  , size:['EU 30' , 'EU 31','EU 32' , 'EU 33','EU 34' , 'EU 35','EU 36' , 'EU 37', 'EU 38' , 'EU 39','EU 40' , 'EU 41','EU 42' , 'EU 43','EU 44' , 'EU 45']},
         { id: 4, name: 'Slipper', options: ['']  , size:['EU 30' , 'EU 31','EU 32' , 'EU 33','EU 34' , 'EU 35','EU 36' , 'EU 37', 'EU 38' , 'EU 39','EU 40' , 'EU 41','EU 42' , 'EU 43','EU 44' , 'EU 45']},
-        { id: 5, name: 'Sandal', options: ['']  , size:['EU 30' , 'EU 31','EU 32' , 'EU 33','EU 34' , 'EU 35','EU 36' , 'EU 37', 'EU 38' , 'EU 39','EU 40' , 'EU 41','EU 42' , 'EU 43','EU 44' , 'EU 45']}
+        { id: 5, name: 'Sneakers', options: ['High Top', 'Low Top']  , size:['EU 30' , 'EU 31','EU 32' , 'EU 33','EU 34' , 'EU 35','EU 36' , 'EU 37', 'EU 38' , 'EU 39','EU 40' , 'EU 41','EU 42' , 'EU 43','EU 44' , 'EU 45']},
+        { id: 6, name: 'Sandal', options: ['']  , size:['EU 30' , 'EU 31','EU 32' , 'EU 33','EU 34' , 'EU 35','EU 36' , 'EU 37', 'EU 38' , 'EU 39','EU 40' , 'EU 41','EU 42' , 'EU 43','EU 44' , 'EU 45']}
       ],
       material:['Cashmere' , 'Cotton' ,'Elastic','Fake Fur' , 'Lambskin' ,'Feathers' , 'Gems and minerals' , 'Imitation leather','Leather' , 'Linen','Lyocell','Merino','Metal' , 'Polyester','Silk','Synthetic' , 'Textile' , 'Wool' , 'Other']
     },
@@ -79,8 +80,10 @@ export const ClothingCategories = [
     {id:9 , name:'Silver'},
     {id:10 , name:'Yellow'},
     {id:11 , name:'Purple'},
-    {id:12 , name:'Orange'}
-
+    {id:12 , name:'Orange'},
+    {id:13 , name:'Navy'},
+    {id:14 , name:'Royal Blue'},
+    {id:15 , name:'Ecru'}
   ];
 
   export const Collection=[

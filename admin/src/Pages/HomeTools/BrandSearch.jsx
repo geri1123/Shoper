@@ -3,7 +3,7 @@ import './HomeTools.css'
 import { IoIosArrowForward } from "react-icons/io";
 import { ShoperContext } from '../../Context/ShoperContext';
 
-const BrandSearch = ({selectedbrand , setSelectedBrand ,countProductsByBrandAndCategory}) => {
+const BrandSearch = ({selectedbrand , setSelectedBrand ,countProductsByBrandAndCategory , clearSearchProductName}) => {
     const {AllBrand }=useContext(ShoperContext);
     const brandListref =useRef(null);
     const brands=useRef(null);
@@ -64,9 +64,10 @@ const BrandSearch = ({selectedbrand , setSelectedBrand ,countProductsByBrandAndC
   };
         const handleApplyClick = () => {
             setSelectedBrand(localSelectedBrands);
-            remove(); // Hide the dropdown
-            setsearchbrand("");
            
+            setsearchbrand("");
+            clearSearchProductName();
+            remove(); // Hide the dropdown
         };
         useEffect(() => {
             setLocalSelectedBrands(selectedbrand);

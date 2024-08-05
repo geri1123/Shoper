@@ -5,7 +5,9 @@ import  { ShoperContext } from '../Context/ShoperContext'
 import Items from '../Components/Items/Items'
 import BrandSearch from './HomeTools/BrandSearch'
 import { TiDeleteOutline } from 'react-icons/ti'
-
+import ReactPaginate from "react-paginate";
+import {useLocation , useNavigate} from 'react-router-dom'
+import { useEffect } from 'react'
 const Home = () => {
   const {allProducts}=useContext(ShoperContext);
   const [searchCategory , setSearchCategory]=useState('');
@@ -38,10 +40,17 @@ const [searchproductName  , setSearchProductName]=useState('');
      if (selectedbrand.length === 0) return products;
      return products.filter((product) => selectedbrand.includes(product.brand));
  };
- const filterproductbyname=(products)=>{
-  if(searchproductName.length===0) return products;
-  return products.filter((product)=>searchproductName.includes(product.productName));
- }
+//  const filterproductbyname=(products)=>{
+//   if(searchproductName.length===0) return products;
+//   return products.filter((product)=>searchproductName.includes(product.productName));
+//  };
+ const filterproductbyname = (products) => {
+  if (searchproductName.length === 0) return products;
+  const lowerCaseSearchProductName = searchproductName.toLowerCase();
+  return products.filter((product) =>
+    product.productName.toLowerCase().includes(lowerCaseSearchProductName)
+  );
+};
 
    const filteredCategory=filterCategory();
    const filteredBrand = filterByBrands(filteredCategory);
@@ -65,6 +74,58 @@ const handleCategoryChange = (categoryName) => {
 const handleRemoveprodname=()=>{
   setSearchProductName('');
 }
+const clearSearchProductName = () => {
+  setSearchProductName('');
+};
+
+
+
+////pagination
+
+const navigate=useNavigate();
+const location=useLocation();
+// Read the current page number from the URL
+
+const [currentPage, setCurrentPage] = useState(1);
+const itemsPerPage =10; // Number of movies per page
+const query = new URLSearchParams(location.search);
+const currentPageFromUrl = parseInt(query.get('page') || '1', 10);
+useEffect(() => {
+  // Reset to page 1 when filters change
+  setCurrentPage(1);
+  
+  navigate(`/?page=1`);
+}, [searchCategory, selectedbrand, searchproductName]);
+
+
+
+
+// Calculate total number of pages
+const pageCount = Math.ceil(filteredProducts.length / itemsPerPage);
+
+// Calculate the index of the first and last movie to display
+const startIndex = (currentPage - 1)* itemsPerPage;
+const endIndex = Math.min(startIndex + itemsPerPage, filteredProducts.length);
+
+// Slice the movies array to get movies for the current page
+const currentProduct = filteredProducts.slice(startIndex, endIndex);
+//router
+
+// Handle page change
+
+
+
+
+const handlePageChange = ({ selected }) => {
+  const newPage = selected +1;
+    setCurrentPage(newPage);
+  
+ navigate(`/?page=${newPage}`);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+
+////end pagination
   return (
     <div className='Home'>
       <div className="menuhome">
@@ -93,7 +154,7 @@ const handleRemoveprodname=()=>{
 <div className="brandhome">
   <h2 className='h2home'>Brand</h2>
 
-<BrandSearch selectedbrand={selectedbrand} setSearchProductName={setSearchProductName} setSelectedBrand={setSelectedBrand}  countProductsByBrandAndCategory={countProductsByBrandAndCategory}  />
+<BrandSearch clearSearchProductName={clearSearchProductName} selectedbrand={selectedbrand} setSearchProductName={setSearchProductName} setSelectedBrand={setSelectedBrand}  countProductsByBrandAndCategory={countProductsByBrandAndCategory}  />
  </div>
  <div className="brandhome">
 
@@ -114,7 +175,7 @@ const handleRemoveprodname=()=>{
 { searchproductName && <h5 className="hhome">{searchproductName}<TiDeleteOutline onClick={handleRemoveprodname}  className='tdelete'/>  </h5>}
   </div>
   <div className="productlisthome">
-  {filteredProducts.length > 0 ? filteredProducts.map((product, i) => (
+  {currentProduct.length > 0 ? currentProduct.map((product, i) => (
             <Items
               key={i}
               id={product.id}
@@ -129,6 +190,22 @@ const handleRemoveprodname=()=>{
           )): (<p>No product</p>)}
   </div>
 </div>
+ {/* Pagination */}
+ {filteredProducts.length>itemsPerPage &&(
+      <ReactPaginate
+      
+        pageCount={pageCount}
+        pageRangeDisplayed={5}
+        marginPagesDisplayed={2}
+        onPageChange={handlePageChange}
+        containerClassName="pagination"
+        activeClassName="active"
+
+       
+        disableInitialCallback // Disable initial pagination callback
+      />
+)}
+      {/* Manually trigger pagination change */}
     </div>
   )
 }

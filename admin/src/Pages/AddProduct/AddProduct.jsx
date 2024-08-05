@@ -39,6 +39,7 @@ const AddProduct = () => {
     gender: '',
     brand: '',
     productName:'',
+    itemNumber:'',
     category: '',
     name: '',
    material:'',
@@ -188,6 +189,7 @@ const AddProduct = () => {
       brand: '',
       category: '',
       name: '',
+      itemNumber:'',
       material:'',
       color: '',
       collections: '',
@@ -221,6 +223,10 @@ const AddProduct = () => {
     if (!productData.material) {
       isValid = false;
       newErrors.material = 'Material is required.';
+    }
+    if (!productData.itemNumber) {
+      isValid = false;
+      newErrors.itemNumber = 'itemNumber is required.';
     }
    
     if (!productData.color) {
@@ -277,6 +283,8 @@ const handlesubmit = async () => {
           body: JSON.stringify({
               gender: productData.gender,
               productName:productData.productName,
+
+              itemNumber:productData.itemNumber,
               brand: productData.brand,
               category: productData.category,
               name: productData.name,
@@ -302,6 +310,7 @@ const handlesubmit = async () => {
         brand: '',
         gender: '',
         productName:'',
+        itemNumber:'',
         category: '',
         name: '',
         material:'',
@@ -389,7 +398,14 @@ const handlesubmit = async () => {
         </div>
         {errors.productName && <p className="error-message">{errors.productName}</p>}
       </div>
-
+      <div className="addproduct-itemfield">
+        <h3 >Manufacturer's item number</h3>
+        <div className="addproduct-brand">
+          <input type="text" name='itemNumber' value={productData.itemNumber} onChange={handleChange} placeholder='Add itemNumber..' />
+          
+        </div>
+        {errors.itemNumber && <p className="error-message">{errors.itemNumber}</p>}
+      </div>
       <div className="addproduct-itemfield">
         <h3>Category</h3>
      <div className="addproduct-brand">
@@ -558,13 +574,13 @@ const handlesubmit = async () => {
       </div>
       <div className="addproduct-itemfield">
         <h3>Old-Price</h3>
-        <input className='inputfield' type="number" value={productData.old_price} name="old_price" onChange={handleChange}/>
+        <input className='inputfield' type="text" value={productData.old_price} name="old_price" onChange={handleChange}/>
 
         {errors.old_price && <p className="error-message">{errors.old_price}</p>}
       </div>
       <div className="addproduct-itemfield">
         <h3>New-Price</h3>
-        <input className='inputfield' type="number" value={productData.new_price} name="new_price" onChange={handleChange}/>
+        <input className='inputfield' type="text" value={productData.new_price} name="new_price" onChange={handleChange}/>
         
         {errors.new_price && <p className="error-message">{errors.new_price}</p>}
       </div>
