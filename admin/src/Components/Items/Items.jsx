@@ -22,8 +22,8 @@ const Items = (props) => {
       };
 
   return (
-    <div className='items card'>
-      <Link to="#" className='text-decoration-none text-dark'>
+    <div className='items card' onClick={props.handleclickproddetail} >
+      {/* <Link to={`/productdetail/${props.id}/${props.productName}`} className='text-decoration-none text-dark'> */}
         <img className='card-img-top  img-fluid'
          src={hovered? props.img_url_2 : props.img_url_1}
           alt={props.name} 
@@ -41,7 +41,7 @@ const Items = (props) => {
           <h2>{props.new_price}€</h2>
           
         </div>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 }

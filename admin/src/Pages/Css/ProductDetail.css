@@ -1,0 +1,69 @@
+
+.productdetail {
+    position: fixed; /* Or absolute, depending on your layout needs */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity as needed */
+    overflow: auto; /* Allow scrolling if content overflows */
+    z-index: 1000; /* Ensure it appears above other content */
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    overflow: hidden;
+
+ }
+
+ 
+ .prodd {
+     width: 25%; /* Adjust as needed for the detail container */
+      /* Optional: limit the maximum width */
+     background-color: rgb(43, 43, 43);
+     padding: 25px;
+height: 100%;
+     border-radius: 8px; /* Optional: rounded corners */
+ 
+    }
+.main-image{
+    width: 100px ;
+    aspect-ratio: 3/4;
+}
+.proddetailcard{
+    margin:  40px 0;
+}
+.pprdocuctdetail{
+    font-size: 17 px;
+  
+    padding: 5px 0;
+   
+}
+.h1proddet{
+    color:white;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+.proddetailcard{
+    width: 100%;
+    display: flex;
+flex-direction: column;
+
+    
+}
+.pprdocuctdetail span{
+    font-size: 16px; 
+    margin-left: 5px;
+    color: rgb(255, 0, 0);
+}
+.h2proddet{
+    padding: 5px 0;
+}
+.closeProduct{
+    width: 30px ;
+    height: 30px;
+    color: white;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    
+}

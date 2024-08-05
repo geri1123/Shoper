@@ -8,6 +8,7 @@ import { TiDeleteOutline } from 'react-icons/ti'
 import ReactPaginate from "react-paginate";
 import {useLocation , useNavigate} from 'react-router-dom'
 import { useEffect } from 'react'
+import Productdetail from './Productdetail'
 const Home = () => {
   const {allProducts}=useContext(ShoperContext);
   const [searchCategory , setSearchCategory]=useState('');
@@ -15,7 +16,7 @@ const Home = () => {
   const allproductlength=allProducts.length;
   const [selectedbrand, setSelectedBrand] = useState([]);
 const [searchproductName  , setSearchProductName]=useState('');
-
+const [selectedProduct, setSelectedProduct] = useState(null);
 
   //Count all products with the same  category 
   const countByCategory = (categoryName) => {
@@ -126,6 +127,14 @@ const handlePageChange = ({ selected }) => {
 
 
 ////end pagination
+
+
+const handleClickProductDetail = (productId) => {
+  const product = allProducts.find(p => p.id === productId);
+  setSelectedProduct(product);
+};
+
+
   return (
     <div className='Home'>
       <div className="menuhome">
@@ -167,6 +176,13 @@ const handlePageChange = ({ selected }) => {
 </div>
 
 <div className="bodyhome">
+<div className="productdetail-container">
+          {selectedProduct ? (
+            <Productdetail setSelectedProduct={setSelectedProduct} product={selectedProduct} />
+          ) : (
+            <p>Select a product to see details</p>
+          )}
+        </div>
   <div className="searchedproducts">
   <p className='phome'>List product by category: <span className='searchspan'>{searchCategory==="" ? 'All': searchCategory}</span></p>
  {selectedbrand.map((sel , i)=>(
@@ -177,6 +193,7 @@ const handlePageChange = ({ selected }) => {
   <div className="productlisthome">
   {currentProduct.length > 0 ? currentProduct.map((product, i) => (
             <Items
+            handleclickproddetail={() => handleClickProductDetail(product.id)}
               key={i}
               id={product.id}
               brand={product.brand}
@@ -186,6 +203,7 @@ const handlePageChange = ({ selected }) => {
               img_url_2={product.img_url_2}
               old_price={product.old_price}
               new_price={product.new_price}
+              productName={product.productName}
             />
           )): (<p>No product</p>)}
   </div>

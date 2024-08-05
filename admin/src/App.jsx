@@ -9,6 +9,7 @@ import AddBrand from './Pages/AddBrand/AddBrand';
 
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Edit from './Pages/Edit/Edit';
+// import Productdetail from './Pages/Productdetail';
 
 const App = () => {
   return (
@@ -22,7 +23,7 @@ const App = () => {
   <Route path='/Dashboard' element={<Dashboard/>}/>
   <Route path='/AddProduct' element={<AddProduct/>}/>
   <Route path='/AddBrand' element={<AddBrand/>}/>
- 
+ {/* <Route path='/productdetail/:id/:productName' element={<Productdetail/>} /> */}
 
 </Routes>
 
