@@ -11,7 +11,7 @@ const cors=require("cors");
 app.use(express.json());
 app.use(cors());
 //Database connection with mongoDB
-mongoose.connect("mongodb+srv://shoping:geri1996@cluster0.xabqr5h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+mongoose.connect("mongodb+srv://shoping:*****@cluster0.xabqr5h.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 
 
 //API Creation
