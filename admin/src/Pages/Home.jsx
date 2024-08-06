@@ -197,13 +197,14 @@ const handleClickProductDetail = (productId) => {
               key={i}
               id={product.id}
               brand={product.brand}
-              collection={product.collection}
+              collections={product.collections}
               name={product.name}
               img_url_1={product.img_url_1}
               img_url_2={product.img_url_2}
               old_price={product.old_price}
               new_price={product.new_price}
               productName={product.productName}
+              
             />
           )): (<p>No product</p>)}
   </div>

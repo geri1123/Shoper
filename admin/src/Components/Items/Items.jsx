@@ -30,7 +30,7 @@ const Items = (props) => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           />
-        <p className='collection'>{props.collection}</p>
+        <p className='collection'>{props.collections}</p>
         <div className="card-body ">
           <h3 className='card-title'>{props.brand}--(id:{props.id})</h3>
           <h4 className='card-subtitle mb-2'>{props.name}</h4>

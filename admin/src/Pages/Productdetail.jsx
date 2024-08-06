@@ -33,6 +33,35 @@ const Productdetail = ({ product  , setSelectedProduct}) => {
           document.removeEventListener('mousedown', handleClickOutside);
         };
       }, []);
+
+      const handledeleteprod = async (id) => {
+        // Show a confirmation dialog
+        const confirmed = window.confirm("Are you sure you want to delete this product?");
+        
+        if (confirmed) {
+         
+          try {
+            await fetch('http://localhost:5000/removeproduct', {
+              method: 'POST',
+              headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ id }),
+            });
+            
+           
+            
+            window.location.reload();
+          } catch (error) {
+        
+            console.error('Error deleting product:', error);
+          }
+        } else {
+      
+          console.log('Product deletion cancelled');
+        }
+      };
   return (
     <div className='productdetail'>
         <div className="prodd" ref={prodRef}>
@@ -62,9 +91,13 @@ const Productdetail = ({ product  , setSelectedProduct}) => {
    
       {description && <p className='pprdocuctdetail'>Description: <span>{description}</span></p>} {/* Display description if available */}
       {/* Add more details if needed */}
+      
       </div>
+      <button onClick={()=>handledeleteprod(id)} type='button' >Delete this Product</button>
     </div>
+   
     </div>
+    
     </div>
   );
 };
