@@ -28,10 +28,10 @@ const [selectedProduct, setSelectedProduct] = useState(null);
 
 
 
-
    const filterCategory=()=>{
    
      if(searchCategory){
+    
       return   allProducts.filter((product)=>product.category===searchCategory);
      }
    
@@ -60,6 +60,7 @@ const handleRemoveBrand = (brandToRemove) => {
     prevSelectedBrands.filter(brand => brand !== brandToRemove)
   );
 };
+
 const countProductsByBrandAndCategory = (brand) => {
   
   return filteredCategory.filter((prod) => prod.brand === brand).length;
@@ -140,6 +141,8 @@ useEffect(() =>{
     // <div className={`Home ${selectedProduct ? 'no-scroll' : ''}`}>
      
       <div className={`Home ${selectedProduct ? 'no-scroll': ''}`}>
+        
+      
       <div className='menuhome' >
         <div className="categoryhome">
         <h2 className='h2home'>Category</h2>
@@ -164,6 +167,7 @@ useEffect(() =>{
    
 </div>
 <div className="brandhome">
+  
   <h2 className='h2home'>Brand</h2>
 
 <BrandSearch clearSearchProductName={clearSearchProductName} selectedbrand={selectedbrand} setSearchProductName={setSearchProductName} setSelectedBrand={setSelectedBrand}  countProductsByBrandAndCategory={countProductsByBrandAndCategory}  />

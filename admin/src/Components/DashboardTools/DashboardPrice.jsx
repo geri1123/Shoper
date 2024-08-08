@@ -82,7 +82,7 @@ const DashboardPrice = () => {
     }, 0).toFixed(2);
 
     // Prepare data for the pie chart
-    const colors = ['#FF6384', '#36A2EB', '#FFCE56', '#E57373', '#F06292', '#64B5F6', '#4DB6AC', '#81C784'];
+    const colors = ['#C0C0C0', '#D3D3D3', '#2F4F4F', '#A9A9A9', '#F06292', '#64B5F6', '#4DB6AC', '#81C784'];
     const categoryColors = ClothingCategories.map((cat, index) => ({
         name: cat.name,
         color: colors[index % colors.length],
@@ -108,7 +108,7 @@ const DashboardPrice = () => {
             <p> ${totalPrice}</p>
             </div>
             {categoryColors.map(category => (
-                <div className="countbycat" key={category.id}>
+                <div className="countbycat" key={category.id} style={{background:category.color ,padding:'5px'}}>
                     <h2 className='DashboardH'>{category.name}</h2>
                     <p>${getTotalPriceForCategory(category.name)}</p>
                 </div>

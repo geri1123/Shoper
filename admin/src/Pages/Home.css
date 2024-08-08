@@ -8,6 +8,17 @@
     border-radius: 20px;
     padding: 30px;
 }
+.gender{
+  display: flex;
+  margin-bottom: 20px;
+  column-gap: 30px;
+  
+}
+.h2gender{
+  border-bottom: 1px solid gray;
+  padding: 5px;
+  cursor: pointer;
+}
 .menuhome{
     margin-bottom: 20px;
     width: 100%;

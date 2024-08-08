@@ -36,7 +36,11 @@ const DashboardItemsnr = () => {
     ]
   };
   return (
+    
     <div className='Dashboarditemsnr'>
+    
+    
+     
         <div className="gridtotalprod">
             <div className="countbycatTotal">
       <h2 className='DashboardH'>Total Products</h2>
@@ -58,5 +62,6 @@ const DashboardItemsnr = () => {
     </div>
   );
 };
+export default DashboardItemsnr
 
-export default DashboardItemsnr;
+
