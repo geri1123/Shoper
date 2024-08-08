@@ -180,3 +180,9 @@
   .pagination li a:hover {
     background-color: #f0f0f0;
   }
+  .menuhome.hidden{
+    overflow: hidden;
+  }
+  .no-scroll{
+    overflow: hidden;
+  }

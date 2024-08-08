@@ -1,7 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Css/ProductDetail.css'; // Ensure this file contains the required styling
 import { IoMdClose } from "react-icons/io";
 const Productdetail = ({ product  , setSelectedProduct}) => {
+
+  const [isClosing, setIsClosing] = useState(false);
+
     const prodRef =useRef();
   if (!product) {
     return <p>No product selected</p>; // Provide feedback if no product is selected
@@ -11,12 +14,18 @@ const Productdetail = ({ product  , setSelectedProduct}) => {
     brand ,
     name,
     collections,
-    material , itemNumber , size } = product;
+    material , itemNumber , size , img_url_3 } = product;
     const sizeString = size.map(s => s.size).join(', ');
+    // const close = () => {
+    //     setSelectedProduct(null);
+    //   };
     const close = () => {
-        setSelectedProduct(null);
-      };
-      
+      setIsClosing(true);
+      setTimeout(() => {
+          setSelectedProduct(null);
+          setIsClosing(false);
+      }, 500); // Duration should match the duration of the CSS animation
+  };
 
       useEffect(() => {
         const handleClickOutside = (event) => {
@@ -36,6 +45,7 @@ const Productdetail = ({ product  , setSelectedProduct}) => {
 
       const handledeleteprod = async (id) => {
         // Show a confirmation dialog
+     
         const confirmed = window.confirm("Are you sure you want to delete this product?");
         
         if (confirmed) {
@@ -63,7 +73,7 @@ const Productdetail = ({ product  , setSelectedProduct}) => {
         }
       };
   return (
-    <div className='productdetail'>
+    <div className={`productdetail ${isClosing ? 'hide' : 'show'}`}>
         <div className="prodd" ref={prodRef}>
          <h1 className='h1proddet'>Product Detail</h1>
         <div className="proddetailcard">
@@ -71,8 +81,8 @@ const Productdetail = ({ product  , setSelectedProduct}) => {
       <div className='productdetail-images'>
         {/* Display primary image */}
         <img src={img_url_1} alt={productName} className='main-image' />
-       
-        
+       <img src={img_url_2} alt={productName} className='main-image' />
+        <img src={img_url_3} alt={productName} className='main-image' />
       </div>
       <div className="proddesc">
         <IoMdClose className='closeProduct' onClick={close}/>
@@ -93,7 +103,7 @@ const Productdetail = ({ product  , setSelectedProduct}) => {
       {/* Add more details if needed */}
       
       </div>
-      <button onClick={()=>handledeleteprod(id)} type='button' >Delete this Product</button>
+    <button onClick={()=>handledeleteprod(id)}    type='button' >  Delete this Product</button> 
     </div>
    
     </div>

@@ -1,0 +1,44 @@
+.dashboardprice{
+    width: 50%;
+}
+.Dashboarditemsnr{
+    width: 50%;
+    
+}
+.Dashboarditemsnr h2  ,p {
+  font-size: 16px;
+}
+.dashboardprice h2  ,p {
+    font-size: 16px;
+  }
+.countbycatTotal{
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: grey;
+}
+
+.countbycat{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.gridtotalprod{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5 , 1fr);
+    margin-bottom: 30px;
+}
+.pie-container {
+    width: 100%;  /* Full viewport width */
+    height: 100%; /* Full viewport height */
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+  }
+  
+  .pie {
+    width: 400px;  /* Adjust width as needed */
+    height: 400px; /* Adjust height as needed */
+  }

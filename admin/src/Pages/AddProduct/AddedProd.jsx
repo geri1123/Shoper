@@ -42,7 +42,8 @@ const AddedProd = () => {
             },
             body:JSON.stringify({id:deleteId})
         })
-       await fetchallprod();
+            window.location.reload();
+    //    await fetchallprod();
 
     }
     const cancelDelete=()=>{

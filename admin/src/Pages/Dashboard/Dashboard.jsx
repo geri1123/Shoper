@@ -1,11 +1,15 @@
-import React from 'react'
-import './Dashboard.css'
+import React, { useContext } from 'react';
+import './Dashboard.css';
+import DashboardPrice from '../../Components/DashboardTools/DashboardPrice';
+import DashboardItemsnr from '../../Components/DashboardTools/DashboardItemsnr';
+
 const Dashboard = () => {
   return (
     <div className='dashboard'>
-      <h2>Dashboard</h2>
+        <DashboardPrice/>
+        <DashboardItemsnr/>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
+export default Dashboard;

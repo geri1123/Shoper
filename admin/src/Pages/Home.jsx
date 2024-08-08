@@ -41,10 +41,7 @@ const [selectedProduct, setSelectedProduct] = useState(null);
      if (selectedbrand.length === 0) return products;
      return products.filter((product) => selectedbrand.includes(product.brand));
  };
-//  const filterproductbyname=(products)=>{
-//   if(searchproductName.length===0) return products;
-//   return products.filter((product)=>searchproductName.includes(product.productName));
-//  };
+
  const filterproductbyname = (products) => {
   if (searchproductName.length === 0) return products;
   const lowerCaseSearchProductName = searchproductName.toLowerCase();
@@ -134,10 +131,16 @@ const handleClickProductDetail = (productId) => {
   setSelectedProduct(product);
 };
 
+useEffect(() =>{
+  
+  document.body.classList.toggle('no-scroll',!!selectedProduct);
 
+},[selectedProduct])
   return (
-    <div className='Home'>
-      <div className="menuhome">
+    // <div className={`Home ${selectedProduct ? 'no-scroll' : ''}`}>
+     
+      <div className={`Home ${selectedProduct ? 'no-scroll': ''}`}>
+      <div className='menuhome' >
         <div className="categoryhome">
         <h2 className='h2home'>Category</h2>
     <ul className='ulAllproducthome'>
