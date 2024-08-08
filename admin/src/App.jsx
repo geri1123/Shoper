@@ -9,6 +9,8 @@ import AddBrand from './Pages/AddBrand/AddBrand';
 
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Edit from './Pages/Edit/Edit';
+import Men from './Pages/Men';
+import Women from './Pages/Women';
 // import Productdetail from './Pages/Productdetail';
 
 const App = () => {
@@ -23,6 +25,8 @@ const App = () => {
   <Route path='/Dashboard' element={<Dashboard/>}/>
   <Route path='/AddProduct' element={<AddProduct/>}/>
   <Route path='/AddBrand' element={<AddBrand/>}/>
+  <Route path='/men' element={<Men/>}/>
+  <Route path='/women' element={<Women/>}/>
  {/* <Route path='/productdetail/:id/:productName' element={<Productdetail/>} /> */}
 
 </Routes>

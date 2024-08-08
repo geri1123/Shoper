@@ -9,7 +9,7 @@ const SideBar = () => {
   
   return (
     <div className='sidebar'>
-      <div  className="sidebar-items"><NavLink exact to={'/'} activeClassName='active'><RiHome4Line  className='reacticons'/><h2>Home</h2></NavLink></div>
+      <div  className="sidebar-items"><NavLink to={'/' } activeClassName='active'><RiHome4Line  className='reacticons'/><h2>Home</h2></NavLink></div>
       <div className="sidebar-items"><NavLink to={'/Dashboard'} activeClassName='active'><RxDashboard className='reacticons'/><h2>Dashboard</h2></NavLink></div>
       <div className="sidebar-items"><NavLink to={'/AddProduct'} activeClassName='active'><IoAddCircleOutline className='reacticons'/><h2>Add Product</h2></NavLink></div>
       <div className="sidebar-items"><NavLink to={'/AddBrand'} activeClassName='active'><IoAddCircleOutline className='reacticons'/><h2>Add Brand</h2></NavLink></div>

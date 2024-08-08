@@ -1,9 +1,10 @@
 .dashboardprice{
     width: 50%;
+    height: 60%;
 }
 .Dashboarditemsnr{
     width: 50%;
-    
+    height: 60%;
 }
 .Dashboarditemsnr h2  ,p {
   font-size: 16px;

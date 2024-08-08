@@ -6,9 +6,10 @@ import Items from '../Components/Items/Items'
 import BrandSearch from './HomeTools/BrandSearch'
 import { TiDeleteOutline } from 'react-icons/ti'
 import ReactPaginate from "react-paginate";
-import {useLocation , useNavigate} from 'react-router-dom'
+import {useLocation , useNavigate , Link, NavLink} from 'react-router-dom'
 import { useEffect } from 'react'
 import Productdetail from './Productdetail'
+
 const Home = () => {
   const {allProducts}=useContext(ShoperContext);
   const [searchCategory , setSearchCategory]=useState('');
@@ -17,7 +18,7 @@ const Home = () => {
   const [selectedbrand, setSelectedBrand] = useState([]);
 const [searchproductName  , setSearchProductName]=useState('');
 const [selectedProduct, setSelectedProduct] = useState(null);
-
+const [home , sethome]=useState('home');
   //Count all products with the same  category 
   const countByCategory = (categoryName) => {
     return allProducts.filter((product) => product.category === categoryName).length;
@@ -141,7 +142,11 @@ useEffect(() =>{
     // <div className={`Home ${selectedProduct ? 'no-scroll' : ''}`}>
      
       <div className={`Home ${selectedProduct ? 'no-scroll': ''}`}>
-        
+        <div className="gender">
+            <Link className={home ? 'homeLink border' : 'homeLink'} to="/" >All gender</Link>
+          <Link className='homeLink'  to="/men">Men</Link>
+          <Link className= 'homeLink'  to="/women"> Women</Link>
+        </div>
       
       <div className='menuhome' >
         <div className="categoryhome">
@@ -184,10 +189,8 @@ useEffect(() =>{
 
 <div className="bodyhome">
 <div className="productdetail-container">
-          {selectedProduct ? (
+          {selectedProduct && (
             <Productdetail setSelectedProduct={setSelectedProduct} product={selectedProduct} />
-          ) : (
-            <p>Select a product to see details</p>
           )}
         </div>
   <div className="searchedproducts">

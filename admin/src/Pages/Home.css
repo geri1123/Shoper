@@ -14,6 +14,21 @@
   column-gap: 30px;
   
 }
+.gender .homeLink{
+  font-size: 20px;
+  text-decoration:none ;
+  color: white;
+  padding: 5px;
+  
+  
+}
+.homeLink.border{
+  border-bottom: 1px solid grey;
+  color: grey;
+}
+.actives{
+  border-bottom: 1px solid gray;
+}
 .h2gender{
   border-bottom: 1px solid gray;
   padding: 5px;
@@ -196,4 +211,9 @@
   }
   .no-scroll{
     overflow: hidden;
+  }
+
+
+  .manh1{
+   color: black;
   }
